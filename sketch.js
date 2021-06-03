@@ -1,12 +1,16 @@
 let logo
 let dvdImage
-let tankWidth
+let fish;
+let bubbles;
+let seaweed;
+let sunbeams;
+let food;
+
 
 function setup(){
-  createCanvas(1000, 600);
-  // Load the image once.
-  dvdImage = loadImage("https://cdn.glitch.com/eaea72a4-ac6d-4777-b76e-f37d75959aa5%2Fdvd.jpeg?1515761833387");
-
+  colorMode(HSB, 360, 100, 100, 1)
+  createCanvas(1200, 800);
+ 
   // Set up an object with starting values.
   logo = {
     x: 50,
@@ -19,7 +23,7 @@ function setup(){
 }
 
 function draw(){
-  background(220);
+  background(30, 80, 75, .5);
 
   // Check to make sure the image isn't at or over the edge of the screen for horizontal movement.
   if (logo.x > width - logo.width) {
