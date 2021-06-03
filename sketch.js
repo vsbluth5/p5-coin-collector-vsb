@@ -23,7 +23,8 @@ function setup(){
 }
 
 function draw(){
-  background(30, 80, 75, .5);
+  background(230, 90, 50, .8);
+  drawBubbles();
 
   // Check to make sure the image isn't at or over the edge of the screen for horizontal movement.
   if (logo.x > width - logo.width) {
@@ -47,4 +48,12 @@ function draw(){
 
   // Draw the logo at the new position.
   image(dvdImage, logo.x, logo.y, logo.width, logo.height);
+}
+
+function drawBubble() {
+  for (let i = 0; i < 500; i++){
+    noStroke();
+    fill(369, randin(90,100), 50, .8)
+    ellipse(random(width), random(height), random(1,5))
+  }
 }
