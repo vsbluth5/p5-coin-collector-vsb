@@ -28,7 +28,9 @@ function draw(){
 }
 
 function mousePressed() {
-  for (let i = 0; i < poppingBubbles.length; i++) {}
+  for (let i = 0; i < poppingBubbles.length; i++) {
+    if (distance (poppingBubbles[i].x, poppingBubbles[i]))
+  }
 
 }
 
