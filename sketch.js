@@ -17,8 +17,12 @@ function draw(){
   background(230, 90, 50, .8);
   stroke(360, 0, 100, 1);
   textSize(16);
-  text("Pop the "+poppingBubbles.length+" larger bubbles by clicking on them", 20, 20)
-  if (mouseIsPressed) {
+  if (poppingBubbles.length > 0){
+    text("Pop the "+poppingBubbles.length+" larger bubbles by clicking on them", 20, 20)
+  }else {
+    
+  }
+    if (mouseIsPressed) {
     text("You clicked at ("+mouseX+", "+mouseY+")", 20, 40);
   }
   noStroke()
@@ -28,11 +32,16 @@ function draw(){
 }
 
 function mousePressed() {
-  if (poppingBubbles.length == 0) 
-  for (let i = 0; i < poppingBubbles.length; i++) {
-    if (distance (poppingBubbles[i].x, poppingBubbles[i].y, mouseX, mouseY) <= poppingBubbles[i].diam/2) {
-      console.log("You clicked on one");
-      poppingBubbles.splice(i,1);
+  if (poppingBubbles.length == 0) {
+    numPops++;
+    createPoppingBubbles()
+  }
+  else {                     
+    for (let i = 0; i < poppingBubbles.length; i++) {
+      if (distance (poppingBubbles[i].x, poppingBubbles[i].y, mouseX, mouseY) <= poppingBubbles[i].diam/2) {
+        console.log("You clicked on one");
+        poppingBubbles.splice(i,1);
+      }
     }
   }
   
@@ -64,7 +73,7 @@ function createBubbles() {
   function drawPoppingBubbles() {
     console.log("numPops = "+poppingBubbles.length)
   for (let i = 0; i < poppingBubbles.length; i++){
-    fill(poppingBubbles[i].hue, random(10,80), 80,.6)
+    fill(poppingBubbles[i].hue, random(10,80), 80,.3)
     poppingBubbles[i].y -= .75;
     if (poppingBubbles[i].y+poppingBubbles[i].diam/2 <= 0){
       poppingBubbles[i].y = height+poppingBubbles[i].diam/2;
@@ -78,8 +87,8 @@ function createPoppingBubbles() {
   for (let i = 0; i < numPops; i++){
     let h = random(350,360)
     let xPos = random(width)
-    let yPos = random(height)
-    let size = random(60,80)
+    let yPos = random(height, 2*height)
+    let size = random(60,100)
     poppingBubbles[i] = {x: xPos, y: yPos, diam: size, hue: h}
   }
 }
