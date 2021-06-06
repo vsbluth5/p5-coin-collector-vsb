@@ -1,9 +1,7 @@
 let logo
 let fish = [];
 let bubbles = [];
-let seaweed=[];
-let sunbeams = []
-let food = [];
+let poppingBubbles = [];
 
 
 function setup(){
