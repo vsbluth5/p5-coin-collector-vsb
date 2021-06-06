@@ -15,7 +15,7 @@ function setup(){
 
 function draw(){
   background(230, 90, 50, .8);
-  // drawBubbles();
+  drawBubbles();
   drawPoppingBubbles();
 
 }
@@ -41,20 +41,24 @@ function createBubbles() {
 }
   
   function drawPoppingBubbles() {
+    console.log("numPops = "+poppingBubbles.length)
   for (let i = 0; i < poppingBubbles.length; i++){
-    fill(poppinhBubbles[i].hue, random(10,50), 50, .9)
+    fill(poppingBubbles[i].hue, random(10,50), 80, 1)
     poppingBubbles[i].y -= 1;
-    if (poppingubbles[i].y <= 0) poppingBubbles[i].y = height;
+    if (poppingBubbles[i].y <= 0){
+      poppingBubbles[i].y = height;
+      poppingBubbles[i].x = random(width);
+    } 
     ellipse(poppingBubbles[i].x, poppingBubbles[i].y, poppingBubbles[i].diam)
   }
 }
 
 function createPoppingBubbles() {
   for (let i = 0; i < numPops; i++){
-    let h = random(50,75)
+    let h = random(350,360)
     let xPos = random(width)
     let yPos = random(height)
-    let size = random(25,40)
+    let size = random(45,65)
     poppingBubbles[i] = {x: xPos, y: yPos, diam: size, hue: h}
   }
 }
