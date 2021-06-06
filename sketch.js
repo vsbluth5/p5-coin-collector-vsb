@@ -20,7 +20,7 @@ function draw(){
   if (poppingBubbles.length > 0){
     text("Pop the "+poppingBubbles.length+" larger bubbles by clicking on them", 20, 20)
   }else {
-    
+    text("You've popped all the bubbles! Click to create more bubbles!", 20, 20)
   }
     if (mouseIsPressed) {
     text("You clicked at ("+mouseX+", "+mouseY+")", 20, 40);
