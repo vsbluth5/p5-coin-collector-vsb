@@ -19,7 +19,7 @@ function draw(){
   textSize(16);
   text("Pop the "+poppingBubbles.length+" larger bubbles by clicking on them", 20, 20)
   if (mouseIsPressed) {
-    text("You clicked at ("+mouseX+", "+mouse+")")
+    text("You clicked at ("+mouseX+", "+mouseY+")", 20, 40);
   }
   noStroke()
   drawBubbles();
@@ -28,9 +28,8 @@ function draw(){
 }
 
 function mousePressed() {
-  stroke(360, 0, 100, 1);
-  textSize(18);
-  text("You clicked on one! ", 20, 40)
+  for (let i = 0; i < poppingBubbles.length; i++) {}
+
 }
 
 function drawBubbles() {
