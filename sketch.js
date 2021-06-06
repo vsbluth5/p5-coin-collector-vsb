@@ -28,8 +28,16 @@ function draw(){
 }
 
 function mousePressed() {
+  if (poppingBubbles.length == 0) 
   for (let i = 0; i < poppingBubbles.length; i++) {
-    if (distance (poppingBubbles[i].x, poppingBubbles[i]))
+    if (distance (poppingBubbles[i].x, poppingBubbles[i].y, mouseX, mouseY) <= poppingBubbles[i].diam/2) {
+      console.log("You clicked on one");
+      poppingBubbles.splice(i,1);
+    }
+  }
+  
+  function distance(x1, y1, x2, y2) {
+    return Math.sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));
   }
 
 }
