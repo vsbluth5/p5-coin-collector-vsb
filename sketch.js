@@ -15,14 +15,20 @@ function setup(){
 
 function draw(){
   background(230, 90, 50, .8);
+  stroke(360, 100, 100, 1);
+  text("Pop the "+poppingBubbles.length+" bubbles", 20, 20)
+  noStroke()
   drawBubbles();
   drawPoppingBubbles();
 
 }
 
+function mousePressed() {
+  
+}
+
 function drawBubbles() {
   for (let i = 0; i < bubbles.length; i++){
-    noStroke();
     fill(bubbles[i].hue, random(10,50), 50, .9)
     bubbles[i].y--;
     if (bubbles[i].y+bubbles[i].diam/2 <= 0) bubbles[i].y = height+bubbles[i].diam;
@@ -43,8 +49,8 @@ function createBubbles() {
   function drawPoppingBubbles() {
     console.log("numPops = "+poppingBubbles.length)
   for (let i = 0; i < poppingBubbles.length; i++){
-    fill(poppingBubbles[i].hue, random(10,50), 80, 1)
-    poppingBubbles[i].y -= 1;
+    fill(poppingBubbles[i].hue, random(10,80), 80,.6)
+    poppingBubbles[i].y -= .75;
     if (poppingBubbles[i].y+poppingBubbles[i].diam/2 <= 0){
       poppingBubbles[i].y = height+poppingBubbles[i].diam/2;
       poppingBubbles[i].x = random(width);
