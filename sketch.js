@@ -15,8 +15,12 @@ function setup(){
 
 function draw(){
   background(230, 90, 50, .8);
-  stroke(360, 100, 100, 1);
-  text("Pop the "+poppingBubbles.length+" bubbles", 20, 20)
+  stroke(360, 0, 100, 1);
+  textSize(16);
+  text("Pop the "+poppingBubbles.length+" larger bubbles by clicking on them", 20, 20)
+  if (mouseIsPressed) {
+    text("You clicked at ("+mouseX+", "+mouse+")")
+  }
   noStroke()
   drawBubbles();
   drawPoppingBubbles();
@@ -24,7 +28,9 @@ function draw(){
 }
 
 function mousePressed() {
-  
+  stroke(360, 0, 100, 1);
+  textSize(18);
+  text("You clicked on one! ", 20, 40)
 }
 
 function drawBubbles() {
